@@ -455,6 +455,8 @@ export default function Home() {
     router.push('/signIn')
   }
 
+  console.log('Tickets', tickets);
+
   return (
     <>
       <TicketModal />
