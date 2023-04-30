@@ -704,7 +704,7 @@ export default function Home() {
                     {act.reservations.length > 0 &&
                       <div className='divide-y divide-dashed'>
                         {act.reservations.map((reservation, index) => (
-                          <div className='flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer'>
+                          <div key={index} className='flex items-center justify-between p-4 hover:bg-gray-50 cursor-pointer'>
                             <p className='text-xs font-medium text-gray-500'>{index + 1}</p>
                             <p className='text-xs font-semibold text-gray-600'>{moment(reservation.date).format('DD/MM/YYYY | HH:mm')}</p>
                             <Countdown className='text-xs font-semibold text-gray-600' date={reservation.date}>
@@ -727,8 +727,8 @@ export default function Home() {
               <div className='flex flex-col space-y-2'>
                 {
                   tickets.length > 0 ?
-                    tickets.map((ticket) => (
-                      <div className='relative group grid grid-cols-12 p-2 border rounded-md bg-gray-50 cursor-pointer'>
+                    tickets.map((ticket, index) => (
+                      <div key={index} className='relative group grid grid-cols-12 p-2 border rounded-md bg-gray-50 cursor-pointer'>
                         <div className='col-span-3 text-xs font-semibold self-center'>{ticket.date}</div>
                         <div className='col-span-3 text-xs font-medium self-center'>{ticket.sub}</div>
                         <div className='col-span-6 text-xs font-medium self-center'>{ticket.desc}</div>
