@@ -1,4 +1,4 @@
-import firebase from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
@@ -11,8 +11,16 @@ const clientCredentials = {
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 }
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(clientCredentials);
-}
+const firebaseConfig = {
+    apiKey: "AIzaSyA_a7GZViWYscDMJRr1aPsZZuljPVoHq7c",
+    authDomain: "resmansys-89d2f.firebaseapp.com",
+    projectId: "resmansys-89d2f",
+    storageBucket: "resmansys-89d2f.appspot.com",
+    messagingSenderId: "12272088761",
+    appId: "1:12272088761:web:d614abfadb1763fb9acd68"
+};
+
+// const firebase = initializeApp();
+const firebase = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
 export default firebase;
